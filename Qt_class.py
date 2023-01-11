@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon, QPixmap, QPalette, QFont, QPen, QPainter, QColor
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QStyle,QLabel
+from PyQt5.QtWidgets import QStyle,QLabel,QWidget
 
 vex=[[260,520,"二期运动场"],       #二期运动场
      [130,880,"信院院楼"],       #信院院楼
@@ -17,11 +17,12 @@ vex=[[260,520,"二期运动场"],       #二期运动场
 
 spoint=0
 epoint=6
-a=[3,6,9]
+a=[]
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        print(type(MainWindow))
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(2055, 1178)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -37,12 +38,6 @@ class Ui_MainWindow(object):
             self.rB[i].setStyleSheet("QRadioButton{border-image: url(res/location.png)}")
 
         self.rB[8].setStyleSheet("QRadioButton{border-image: url(res/RCS.jpg)}")
-
-        # self.line = QtWidgets.QFrame(self.centralwidget)
-        # self.line.setGeometry(QtCore.QRect(290, 850, 211, 16))
-        # self.line.setFrameShape(QtWidgets.QFrame.HLine)
-        # self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
-        # self.line.setObjectName("line")
 
         self.label1=QLabel(self.centralwidget)
         self.label1.move(1700,250)
@@ -84,19 +79,7 @@ class Ui_MainWindow(object):
         self.start.resize(200, 100)
         self.start.move(1800, 800)
         self.start.setStyleSheet('QPushButton:pressed {background-color:green;}')
-        self.start.clicked.connect(self.navigation)
-
-        self.painter = QPainter()  # 创建对象
-        self.painter.begin(self.centralwidget)  #
-        pen = QPen(Qt.red, 5, Qt.SolidLine)  # 红色，宽度为3像素， 实线____________
-        self.painter.setPen(pen)  # 设置画笔
-        # self.painter.drawLine(vex[spoint][0], vex[spoint][1], vex[epoint][0],
-        #                       vex[epoint][1])  # 40, 40, 350, 40 在resize中，起始横坐标， 起始纵坐标，结束横坐标，结束纵坐标
-        self.painter.drawLine(40, 40, 1000,
-                              1000)
-        self.painter.setFont(QFont('SimSun', 15))  # 设置字体，字号
-        self.painter.drawText(40, 20, 320, 20, 100, '这是实线')  #
-        self.painter.end()
+        self.start.clicked.connect(MainWindow.navigation)
 
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -116,41 +99,16 @@ class Ui_MainWindow(object):
                 self.label2.setText("终点是：" + str(vex[epoint][2]))
                 break
 
-    # def paintEvent(self,event):
-    #     qp = QtGui.QPainter()
-    #     qp.begin(self.centralwidget)
-    #
-    #     # 绘图的方法就写在这里就好，begin与end之间
-    #     self.draw(qp, a)
-    #
-    #     qp.end()
 
-    def draw(self, MainWindow, a=[]):
-        qp=QPainter()
-        qp.begin(self.centralwidget)
-        pen = QPen(QColor(238, 0, 0), 10)
-        qp.setPen(pen)
-        if len(a)== 0 :
-            print("Same!")
-        else:
-            for i in a:
-                for j in a:
-                    if i!=j:
-                        print(i)
-                        print(j)
-                        qp.drawLine(int(vex[i][0]),int(vex[i][1]),int(vex[j][0]),int(vex[j][1]))
-                        print("Ok")
-        qp.end()
-        MainWindow.setCentralWidget(self.centralwidget)
-
-    def navigation(self):
+    def navigation(self,MainWindow):
         global a
-        a.append(0)
-        a.append(7)
-        a.append(3)
+        # a[0]=2
+        # a[1]=9
+        # a[2]=5
+        a.append(2)
+        a.append(9)
+        a.append(5)
         print("Clicked")
+        print(type(self))
+        QWidget.repaint(MainWindow)
 
-    # def rbstate(self,btn,i):
-    #     if btn.isChecked()== True:
-    #         flag=i
-    #         print(i)
