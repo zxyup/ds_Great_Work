@@ -1,8 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIcon, QPixmap, QPalette, QFont, QPen, QPainter
+from PyQt5.QtGui import QIcon, QPixmap, QPalette, QFont, QPen, QPainter, QColor
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QStyle,QLabel
-
 
 vex=[[260,520,"二期运动场"],       #二期运动场
      [130,880,"信院院楼"],       #信院院楼
@@ -18,6 +17,7 @@ vex=[[260,520,"二期运动场"],       #二期运动场
 
 spoint=0
 epoint=6
+a=[3,6,9]
 
 
 class Ui_MainWindow(object):
@@ -26,7 +26,6 @@ class Ui_MainWindow(object):
         MainWindow.resize(2055, 1178)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-
         self.rB=[0 for i in range(11)]
         for i in range(11):
             self.rB[i] = QtWidgets.QRadioButton(self.centralwidget)
@@ -38,6 +37,12 @@ class Ui_MainWindow(object):
             self.rB[i].setStyleSheet("QRadioButton{border-image: url(res/location.png)}")
 
         self.rB[8].setStyleSheet("QRadioButton{border-image: url(res/RCS.jpg)}")
+
+        # self.line = QtWidgets.QFrame(self.centralwidget)
+        # self.line.setGeometry(QtCore.QRect(290, 850, 211, 16))
+        # self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        # self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        # self.line.setObjectName("line")
 
         self.label1=QLabel(self.centralwidget)
         self.label1.move(1700,250)
@@ -93,6 +98,7 @@ class Ui_MainWindow(object):
         self.painter.drawText(40, 20, 320, 20, 100, '这是实线')  #
         self.painter.end()
 
+
         MainWindow.setCentralWidget(self.centralwidget)
 
     def start(self):
@@ -110,9 +116,39 @@ class Ui_MainWindow(object):
                 self.label2.setText("终点是：" + str(vex[epoint][2]))
                 break
 
-    def navigation(self):
+    # def paintEvent(self,event):
+    #     qp = QtGui.QPainter()
+    #     qp.begin(self.centralwidget)
+    #
+    #     # 绘图的方法就写在这里就好，begin与end之间
+    #     self.draw(qp, a)
+    #
+    #     qp.end()
 
-        pass
+    def draw(self, MainWindow, a=[]):
+        qp=QPainter()
+        qp.begin(self.centralwidget)
+        pen = QPen(QColor(238, 0, 0), 10)
+        qp.setPen(pen)
+        if len(a)== 0 :
+            print("Same!")
+        else:
+            for i in a:
+                for j in a:
+                    if i!=j:
+                        print(i)
+                        print(j)
+                        qp.drawLine(int(vex[i][0]),int(vex[i][1]),int(vex[j][0]),int(vex[j][1]))
+                        print("Ok")
+        qp.end()
+        MainWindow.setCentralWidget(self.centralwidget)
+
+    def navigation(self):
+        global a
+        a.append(0)
+        a.append(7)
+        a.append(3)
+        print("Clicked")
 
     # def rbstate(self,btn,i):
     #     if btn.isChecked()== True:

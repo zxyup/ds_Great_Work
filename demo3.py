@@ -10,89 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-#
-# class Ui_MainWindow(object):
-#     def setupUi(self, MainWindow):
-#         MainWindow.setObjectName("MainWindow")
-#         MainWindow.resize(1920, 1178)
-#         self.centralwidget = QtWidgets.QWidget(MainWindow)
-#         self.centralwidget.setObjectName("centralwidget")
-#         self.listView = QtWidgets.QListView(self.centralwidget)
-#         self.listView.setGeometry(QtCore.QRect(0, 0, 1920, 1178))
-#         self.listView.setStyleSheet("background:url(:/xmu_map2.png)")
-#         self.listView.setObjectName("listView")
-#         self.radioButton = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton.setGeometry(QtCore.QRect(260, 520, 64, 64))
-#         self.radioButton.setObjectName("radioButton")
-#         self.radioButton_2 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_2.setGeometry(QtCore.QRect(130, 880, 64, 64))
-#         self.radioButton_2.setObjectName("radioButton_2")
-#         self.radioButton_3 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_3.setGeometry(QtCore.QRect(620, 900, 64, 64))
-#         self.radioButton_3.setObjectName("radioButton_3")
-#         self.radioButton_4 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_4.setGeometry(QtCore.QRect(920, 820, 64, 64))
-#         self.radioButton_4.setObjectName("radioButton_4")
-#         self.radioButton_5 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_5.setGeometry(QtCore.QRect(1470, 940, 64, 64))
-#         self.radioButton_5.setObjectName("radioButton_5")
-#         self.radioButton_6 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_6.setGeometry(QtCore.QRect(890, 590, 64, 64))
-#         self.radioButton_6.setObjectName("radioButton_6")
-#         self.radioButton_7 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_7.setGeometry(QtCore.QRect(850, 320, 64, 64))
-#         self.radioButton_7.setObjectName("radioButton_7")
-#         self.radioButton_8 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_8.setGeometry(QtCore.QRect(960, 330, 64, 64))
-#         self.radioButton_8.setObjectName("radioButton_8")
-#         self.radioButton_9 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_9.setGeometry(QtCore.QRect(840, 80, 64, 64))
-#         self.radioButton_9.setObjectName("radioButton_9")
-#         self.radioButton_10 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_10.setGeometry(QtCore.QRect(1470, 540, 64, 64))
-#         self.radioButton_10.setObjectName("radioButton_10")
-#         self.radioButton_11 = QtWidgets.QRadioButton(self.centralwidget)
-#         self.radioButton_11.setGeometry(QtCore.QRect(1100, 650, 64, 64))
-#         self.radioButton_11.setObjectName("radioButton_11")
-#         MainWindow.setCentralWidget(self.centralwidget)
-#         self.menubar = QtWidgets.QMenuBar(MainWindow)
-#         self.menubar.setGeometry(QtCore.QRect(0, 0, 1920, 22))
-#         self.menubar.setObjectName("menubar")
-#         MainWindow.setMenuBar(self.menubar)
-#         self.statusbar = QtWidgets.QStatusBar(MainWindow)
-#         self.statusbar.setObjectName("statusbar")
-#         MainWindow.setStatusBar(self.statusbar)
-#
-#         self.retranslateUi(MainWindow)
-#         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-#
-#     def retranslateUi(self, MainWindow):
-#         _translate = QtCore.QCoreApplication.translate
-#         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-#         self.radioButton.setText(_translate("MainWindow", "二期运动场"))
-#         self.radioButton_2.setText(_translate("MainWindow", "信院院楼"))
-#         self.radioButton_3.setText(_translate("MainWindow", "生科院楼"))
-#         self.radioButton_4.setText(_translate("MainWindow", "教学楼群"))
-#         self.radioButton_5.setText(_translate("MainWindow", "电院院楼"))
-#         self.radioButton_6.setText(_translate("MainWindow", "航院院楼"))
-#         self.radioButton_7.setText(_translate("MainWindow", "体育馆"))
-#         self.radioButton_8.setText(_translate("MainWindow", "游泳馆"))
-#         self.radioButton_9.setText(_translate("MainWindow", "新工科大楼"))
-#         self.radioButton_10.setText(_translate("MainWindow", "一期运动场"))
-#         self.radioButton_11.setText(_translate("MainWindow", "小巨蛋"))
-
-vex=[[260,520],
-     [130,880],
-     [620,900],
-     [920,820],
-     [1470,940],
-     [890,590],
-     [850,320],
-     [960,330],
-     [840,80],
-     [1470,540],
-     [110,650]]
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -104,17 +21,44 @@ class Ui_MainWindow(object):
         self.listView.setGeometry(QtCore.QRect(0, 0, 1920, 1178))
         self.listView.setStyleSheet("background:url(:/xmu_map2.png)")
         self.listView.setObjectName("listView")
-        for i in range(11):
-            self.rB[i] = QtWidgets.QRadioButton(self.centralwidget)
-            self.rB[i].setGeometry(QtCore.QRect(vex[i][0],vex[i][1], 64, 64))
-            self.rB[i].setObjectName("radioButton_"+str(i))
         self.radioButton = QtWidgets.QRadioButton(self.centralwidget)
         self.radioButton.setGeometry(QtCore.QRect(260, 520, 64, 64))
         self.radioButton.setObjectName("radioButton")
-
+        self.radioButton_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_2.setGeometry(QtCore.QRect(130, 880, 64, 64))
+        self.radioButton_2.setObjectName("radioButton_2")
+        self.radioButton_3 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_3.setGeometry(QtCore.QRect(620, 900, 64, 64))
+        self.radioButton_3.setObjectName("radioButton_3")
+        self.radioButton_4 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_4.setGeometry(QtCore.QRect(920, 820, 64, 64))
+        self.radioButton_4.setObjectName("radioButton_4")
+        self.radioButton_5 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_5.setGeometry(QtCore.QRect(1470, 940, 64, 64))
+        self.radioButton_5.setObjectName("radioButton_5")
+        self.radioButton_6 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_6.setGeometry(QtCore.QRect(890, 590, 64, 64))
+        self.radioButton_6.setObjectName("radioButton_6")
+        self.radioButton_7 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_7.setGeometry(QtCore.QRect(850, 320, 64, 64))
+        self.radioButton_7.setObjectName("radioButton_7")
+        self.radioButton_8 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_8.setGeometry(QtCore.QRect(960, 330, 64, 64))
+        self.radioButton_8.setObjectName("radioButton_8")
+        self.radioButton_9 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_9.setGeometry(QtCore.QRect(840, 80, 64, 64))
+        self.radioButton_9.setObjectName("radioButton_9")
+        self.radioButton_10 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_10.setGeometry(QtCore.QRect(1470, 540, 64, 64))
+        self.radioButton_10.setObjectName("radioButton_10")
         self.radioButton_11 = QtWidgets.QRadioButton(self.centralwidget)
         self.radioButton_11.setGeometry(QtCore.QRect(1100, 650, 64, 64))
         self.radioButton_11.setObjectName("radioButton_11")
+        self.line = QtWidgets.QFrame(self.centralwidget)
+        self.line.setGeometry(QtCore.QRect(290, 850, 211, 16))
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1920, 22))
