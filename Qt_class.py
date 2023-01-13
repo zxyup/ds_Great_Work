@@ -37,6 +37,7 @@ class Ui_MainWindow(object):
         print(type(MainWindow))
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(2055, 1178)
+        MainWindow.setFixedSize(2055,1178)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.rB=[0 for i in range(len(vex))]
