@@ -143,6 +143,7 @@ class ds_GA(QMainWindow):
             print("Same!")
         else:
             for i in range(len(a)-1):
+                if a[i]!=-1:
                         qb.drawLine(vex[a[i]][0]+32,vex[a[i]][1]+64,vex[a[i+1]][0]+32,vex[a[i+1]][1]+64)
 
     
@@ -162,6 +163,16 @@ class ds_GA(QMainWindow):
             ei=len(b)
             print(ei)
         a=a+b[si:ei+1]
+        for i in a:
+            if a.count(i) >= 2:
+                s=i
+                ii=a.index(i)
+                for j in range(len(a)):
+                    if j>=ii:
+                        a[j]=-1
+                        if a[j+1] == s:
+                            break
+
         print(a)
         # a=random.sample(seed,5)
         # print(a)
