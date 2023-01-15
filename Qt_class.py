@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon, QPixmap, QPalette, QFont, QPen, QPainter, QColor
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QStyle,QLabel,QWidget,QMainWindow
+from PyQt5.QtWidgets import QStyle,QLabel,QWidget,QMainWindow,QSizePolicy
 from path_planning import dijk,arc
 
 vex=[[260,520,"二期运动场"],       #二期运动场
@@ -45,6 +45,7 @@ class Ui_MainWindow(object):
             self.rB[i] = QtWidgets.QRadioButton(self.centralwidget)
             self.rB[i].setGeometry(QtCore.QRect(vex[i][0],vex[i][1], 64, 64))
             self.rB[i].setObjectName("radioButton_"+str(i))
+            # self.rB[i].setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
             if i == 0:
                 self.rB[i].setChecked(True)
             self.rB[i].setStyleSheet("QRadioButton{border-image: url(res/location.png)}")
@@ -172,7 +173,8 @@ class ds_GA(QMainWindow):
                         a[j]=-1
                         if a[j+1] == s:
                             break
-
+        while a.count(-1)!=0:
+            a.remove(-1)                        
         print(a)
         # a=random.sample(seed,5)
         # print(a)
